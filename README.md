@@ -24,4 +24,4 @@ npm run check   # build + SEO/link/JSON-LD/JS-syntax checks (fails on errors)
 3. Run `npm run check`. The new page is added automatically to the home page, related-tool links, sitemap and structured data.
 
 ## Tool ideas backlog (ranked by search demand × usefulness)
-QR code generator · Loan/EMI calculator · Color palette generator · Regex tester · Lorem ipsum generator · Markdown to HTML · Image resizer for social media · Favicon generator · Pomodoro timer
+QR code generator · Loan/EMI calculator · Color palette generator · Lorem ipsum generator · Markdown to HTML · Image resizer for social media · Favicon generator · Pomodoro timer

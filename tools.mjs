@@ -649,5 +649,44 @@ York",88</textarea>
       ['Why does a converted time show a different date?', 'When a time crosses midnight in another zone, the date changes too. For example, 9 PM in Los Angeles is already the next morning in Tokyo.'],
       ['Which time zones are supported?', 'Every zone your browser knows, which is typically more than 400 IANA zones such as America/New_York, Europe/London and Asia/Kolkata.']
     ]
+  },
+  {
+    slug: 'regex-tester',
+    emoji: '🔍',
+    category: 'Developer',
+    name: 'Regex Tester',
+    title: 'Regex Tester – Test JavaScript Regular Expressions Live',
+    description: 'Test regular expressions with live match highlighting, capture groups, named groups and replace preview. Supports all JavaScript flags. Free and private.',
+    h1: 'Regex Tester & Debugger',
+    lead: 'Write a pattern, paste some text and see every match, capture group and replacement as you type.',
+    appCategory: 'DeveloperApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div style="grid-column:span 2"><label for="rxp">Pattern</label><input id="rxp" type="text" spellcheck="false" value="(?&lt;user&gt;[\\w.+-]+)@(?&lt;domain&gt;[\\w-]+\\.[\\w.]+)" style="font-family:ui-monospace,Menlo,monospace"></div>
+    <div><label for="rxf">Flags</label><input id="rxf" type="text" value="g" spellcheck="false" style="font-family:ui-monospace,Menlo,monospace"></div>
+  </div>
+  <div id="rxmsg" class="msg"></div>
+  <label for="rxt">Test string</label>
+  <textarea id="rxt" spellcheck="false">Contact jane.doe@example.com or support@tooldeck.dev for help.
+Invalid: someone@ and @nowhere</textarea>
+  <label>Matches highlighted</label>
+  <div id="rxhl" class="out" style="white-space:pre-wrap;font-size:.92rem"></div>
+  <div style="overflow-x:auto"><table><thead><tr><th>#</th><th>Match</th><th>Index</th><th>Groups</th></tr></thead><tbody id="rxtbl"></tbody></table></div>
+  <label for="rxr">Replace with (use $1, $&lt;name&gt;, $&amp;)</label>
+  <input id="rxr" type="text" value="[$&lt;user&gt; at $&lt;domain&gt;]" spellcheck="false" style="font-family:ui-monospace,Menlo,monospace">
+  <div id="rxout" class="out" style="white-space:pre-wrap;font-size:.92rem"></div>
+</div>`,
+    howto: [
+      'Type a regular expression (without slashes) and its flags, for example g for all matches and i for case-insensitive.',
+      'Paste the text to test. Matches are highlighted instantly and listed with their capture groups.',
+      'Enter a replacement to preview the result of String.replace.'
+    ],
+    faq: [
+      ['Which regex flavor does this use?', 'Your browser\'s JavaScript (ECMAScript) engine, the same one used by Node.js and front-end code. Lookbehind, named groups (?<name>…) and Unicode property escapes \\p{…} with the u flag are supported.'],
+      ['What do the flags mean?', 'g finds all matches, i ignores case, m makes ^ and $ match at line breaks, s lets . match newlines, u enables full Unicode, d adds match indices and y matches only at lastIndex (sticky).'],
+      ['Why does my pattern freeze the page?', 'Some patterns, like nested quantifiers such as (a+)+, can take exponential time on certain inputs (catastrophic backtracking). Simplify the pattern or make quantifiers possessive-like with more specific character classes.'],
+      ['Is my text sent anywhere?', 'No. Everything runs locally in your browser.']
+    ]
   }
 ];
