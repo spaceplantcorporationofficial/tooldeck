@@ -688,5 +688,41 @@ Invalid: someone@ and @nowhere</textarea>
       ['Why does my pattern freeze the page?', 'Some patterns, like nested quantifiers such as (a+)+, can take exponential time on certain inputs (catastrophic backtracking). Simplify the pattern or make quantifiers possessive-like with more specific character classes.'],
       ['Is my text sent anywhere?', 'No. Everything runs locally in your browser.']
     ]
+  },
+  {
+    slug: 'lorem-ipsum-generator',
+    emoji: '📄',
+    category: 'Design',
+    name: 'Lorem Ipsum Generator',
+    title: 'Lorem Ipsum Generator – Placeholder Text for Designs',
+    description: 'Generate lorem ipsum placeholder text by paragraphs, sentences or words. Optionally start with "Lorem ipsum dolor sit amet" and wrap paragraphs in HTML tags. Copy in one click.',
+    h1: 'Lorem Ipsum Generator',
+    lead: 'Classic dummy text for mockups, wireframes and layouts, in exactly the amount you need.',
+    appCategory: 'DesignApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="lcount">Amount</label><input id="lcount" type="number" min="1" max="100" value="3"></div>
+    <div><label for="lunit">Unit</label><select id="lunit"><option value="p">Paragraphs</option><option value="s">Sentences</option><option value="w">Words</option></select></div>
+  </div>
+  <div class="row" style="margin-top:8px">
+    <label class="check"><input type="checkbox" id="lstart" checked> Start with "Lorem ipsum dolor sit amet…"</label>
+    <label class="check"><input type="checkbox" id="lhtml"> Wrap paragraphs in &lt;p&gt; tags</label>
+  </div>
+  <div class="btns"><button id="lgen">Generate</button><button id="lcopy" class="secondary">Copy</button></div>
+  <textarea id="lout" readonly style="font-family:inherit;min-height:260px"></textarea>
+  <div id="lstats" class="msg"></div>
+</div>`,
+    howto: [
+      'Choose how many paragraphs, sentences or words you need.',
+      'Decide whether to start with the classic "Lorem ipsum dolor sit amet" opening and whether to add HTML paragraph tags.',
+      'Click Generate, then Copy.'
+    ],
+    faq: [
+      ['What is lorem ipsum?', 'Lorem ipsum is scrambled Latin placeholder text derived from Cicero\'s "De Finibus Bonorum et Malorum" (45 BC). Designers have used it since the 1500s so readers focus on layout, not content.'],
+      ['Why use placeholder text instead of real copy?', 'It shows how text will flow and fill a layout before final content exists, without distracting reviewers with meaning.'],
+      ['Does it mean anything?', 'Not really. The words are fragments of Latin with letters added and removed, so it reads like natural text but has no coherent meaning.'],
+      ['Can I use it commercially?', 'Yes. Lorem ipsum is in the public domain.']
+    ]
   }
 ];
