@@ -1,0 +1,9 @@
+{
+  "name": "Tooldeck",
+  "tagline": "Free, fast, private browser tools. No sign-up, no uploads.",
+  "siteUrl": "https://example.com",
+  "stripe": {
+    "supportLink": "",
+    "supportLabel": "Support Tooldeck"
+  }
+}
