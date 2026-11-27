@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strong Password Generator – Random &amp; Secure Passwords</title>
+<meta name="description" content="Generate strong, truly random passwords and passphrases with cryptographic randomness. Choose length and characters and see entropy strength. Free.">
+<link rel="canonical" href="https://spaceplantcorporationofficial.github.io/tooldeck/tools/password-generator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tooldeck">
+<meta property="og:title" content="Strong Password Generator – Random &amp; Secure Passwords">
+<meta property="og:description" content="Generate strong, truly random passwords and passphrases with cryptographic randomness. Choose length and characters and see entropy strength. Free.">
+<meta property="og:url" content="https://spaceplantcorporationofficial.github.io/tooldeck/tools/password-generator/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Secure Password Generator","url":"https://spaceplantcorporationofficial.github.io/tooldeck/tools/password-generator/","description":"Generate strong, truly random passwords and passphrases with cryptographic randomness. Choose length and characters and see entropy strength. Free.","applicationCategory":"SecurityApplication","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these passwords truly random?","acceptedAnswer":{"@type":"Answer","text":"Yes. They use crypto.getRandomValues, the cryptographically secure random generator built into your browser, with unbiased sampling."}},{"@type":"Question","name":"Is the password sent or saved anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Passwords are generated on your device and never transmitted or stored."}},{"@type":"Question","name":"How long should my password be?","acceptedAnswer":{"@type":"Answer","text":"At least 16 characters for random passwords, or 5–6 words for passphrases. Longer is always stronger."}},{"@type":"Question","name":"What is entropy?","acceptedAnswer":{"@type":"Answer","text":"Entropy measures how unpredictable a password is, in bits. Each extra bit doubles the guesses an attacker needs. 80 bits or more is considered very strong."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use the Secure Password Generator","step":[{"@type":"HowToStep","position":1,"text":"Choose a random password or a memorable multi-word passphrase."},{"@type":"HowToStep","position":2,"text":"Set the length and character types you need."},{"@type":"HowToStep","position":3,"text":"Check the entropy meter: aim for 80+ bits for important accounts."},{"@type":"HowToStep","position":4,"text":"Copy it into your password manager."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tooldeck","item":"https://spaceplantcorporationofficial.github.io/tooldeck/"},{"@type":"ListItem","position":2,"name":"Secure Password Generator","item":"https://spaceplantcorporationofficial.github.io/tooldeck/tools/password-generator/"}]}</script>
+</head>
+<body>
+<header class="site"><a class="brand" href="../../">⚡ <span>Tooldeck</span></a>
+<nav><a href="../../#tools">All tools</a><a href="../../pro/">Pro ⚡</a><a href="../../about/">About</a></nav></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Tooldeck</a> › Security › Secure Password Generator</nav>
+<h1>🔐 Strong Password Generator</h1>
+<p class="lead">Create uncrackable passwords using your browser's cryptographically secure random number generator. Nothing is stored or sent.</p>
+
+<div class="card">
+  <div class="row">
+    <div><label for="mode">Type</label><select id="mode"><option value="pw">Random password</option><option value="pp">Memorable passphrase</option></select></div>
+    <div><label for="len">Length: <span id="lv">20</span></label><input id="len" type="range" min="6" max="64" value="20"></div>
+  </div>
+  <div id="pwopts" class="row">
+    <label class="check"><input type="checkbox" id="up" checked> Uppercase A–Z</label>
+    <label class="check"><input type="checkbox" id="lo" checked> Lowercase a–z</label>
+    <label class="check"><input type="checkbox" id="di" checked> Numbers 0–9</label>
+    <label class="check"><input type="checkbox" id="sy" checked> Symbols !@#$</label>
+    <label class="check"><input type="checkbox" id="am"> Avoid look-alikes (Il1O0)</label>
+  </div>
+  <div class="out" id="out" aria-live="polite"></div>
+  <div class="meter"><i id="bar"></i></div>
+  <div class="msg" id="strength"></div>
+  <div class="btns"><button id="gen">Generate new</button><button id="cp" class="secondary">Copy</button><button id="bulk" class="secondary">Generate 25 &amp; download</button></div>
+</div>
+
+<section class="prose"><h2>How to use the Secure Password Generator</h2><ol><li>Choose a random password or a memorable multi-word passphrase.</li><li>Set the length and character types you need.</li><li>Check the entropy meter: aim for 80+ bits for important accounts.</li><li>Copy it into your password manager.</li></ol></section>
+<section class="faq prose"><h2>Frequently asked questions</h2>
+<details><summary>Are these passwords truly random?</summary><p>Yes. They use crypto.getRandomValues, the cryptographically secure random generator built into your browser, with unbiased sampling.</p></details>
+<details><summary>Is the password sent or saved anywhere?</summary><p>No. Passwords are generated on your device and never transmitted or stored.</p></details>
+<details><summary>How long should my password be?</summary><p>At least 16 characters for random passwords, or 5–6 words for passphrases. Longer is always stronger.</p></details>
+<details><summary>What is entropy?</summary><p>Entropy measures how unpredictable a password is, in bits. Each extra bit doubles the guesses an attacker needs. 80 bits or more is considered very strong.</p></details>
+</section>
+<section><h2>More free tools</h2><div class="grid">
+<a class="card tool-link" href="../../tools/mortgage-calculator/"><div class="emoji">🏠</div><h3>Mortgage Calculator</h3><p>Work out your real monthly housing cost, not just principal and interest, and see how your loan balance falls each year.</p></a>
+<a class="card tool-link" href="../../tools/percentage-calculator/"><div class="emoji">➗</div><h3>Percentage Calculator</h3><p>Three of the most common percentage questions, answered as you type, with the formula shown so you can check the math.</p></a>
+<a class="card tool-link" href="../../tools/case-converter/"><div class="emoji">🔠</div><h3>Case Converter</h3><p>Fix accidental caps lock, format headlines, or turn phrases into variable names, instantly.</p></a>
+<a class="card tool-link" href="../../tools/base64-encoder-decoder/"><div class="emoji">🔁</div><h3>Base64 Encoder &amp; Decoder</h3><p>Convert text and files to and from Base64, with proper Unicode handling and a URL-safe option.</p></a>
+</div></section>
+</main><footer class="site"><span>© 2026 Tooldeck · Free, fast, private browser tools. No sign-up, no uploads.</span>
+<span><a href="../../privacy/">Privacy</a> · <a href="../../sitemap.xml">Sitemap</a></span></footer>
+<script>window.TD_CFG={"proLink":"","proPrice":"$9","root":"../../","slug":"password-generator"}</script>
+<script src="../../assets/site.js"></script>
+<script src="../../assets/tools/password-generator.js"></script>
+</body></html>

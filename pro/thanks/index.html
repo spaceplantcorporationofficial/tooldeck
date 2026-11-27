@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Welcome to Tooldeck Pro</title>
+<meta name="description" content="Activating Tooldeck Pro in this browser.">
+<link rel="canonical" href="https://spaceplantcorporationofficial.github.io/tooldeck/pro/thanks/">
+<meta name="robots" content="noindex,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tooldeck">
+<meta property="og:title" content="Welcome to Tooldeck Pro">
+<meta property="og:description" content="Activating Tooldeck Pro in this browser.">
+<meta property="og:url" content="https://spaceplantcorporationofficial.github.io/tooldeck/pro/thanks/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body>
+<header class="site"><a class="brand" href="../../">⚡ <span>Tooldeck</span></a>
+<nav><a href="../../#tools">All tools</a><a href="../../pro/">Pro ⚡</a><a href="../../about/">About</a></nav></header><main class="prose"><h1>⚡ Welcome to Pro</h1><div class="card"><p id="pmsg" class="lead">Activating…</p>
+<div id="restore" hidden><label for="sid">Checkout reference from your receipt (starts with cs_)</label><input id="sid" type="text" placeholder="cs_live_…"><div class="btns"><button id="go">Restore Pro</button></div></div>
+<p><a href="../../">← Back to all tools</a></p></div></main>
+<script>(function(){var m=document.getElementById('pmsg');function ok(id){try{localStorage.setItem('td-pro','1');localStorage.setItem('td-pro-session',id)}catch(e){}m.textContent='Pro is active in this browser. Thank you for supporting Tooldeck! Bookmark this page to restore Pro on another browser.';m.className='lead good';document.getElementById('restore').hidden=true}
+var id=new URLSearchParams(location.search).get('session_id')||'';if(/^cs_(live|test)_[A-Za-z0-9]+$/.test(id)){ok(id);history.replaceState(null,'',location.pathname+'?session_id='+id)}
+else if(localStorage.getItem('td-pro')==='1'){m.textContent='Pro is already active in this browser.';m.className='lead good'}
+else{m.textContent='Enter the checkout reference from your Stripe receipt to restore Pro.';document.getElementById('restore').hidden=false}
+document.getElementById('go').onclick=function(){var v=document.getElementById('sid').value.trim();if(/^cs_(live|test)_[A-Za-z0-9]+$/.test(v))ok(v);else m.textContent='That does not look like a Stripe checkout reference (cs_…).'}})();</script><footer class="site"><span>© 2026 Tooldeck · Free, fast, private browser tools. No sign-up, no uploads.</span>
+<span><a href="../../privacy/">Privacy</a> · <a href="../../sitemap.xml">Sitemap</a></span></footer>
+<script>window.TD_CFG={"proLink":"","proPrice":"$9","root":"../../","slug":"pro-thanks"}</script>
+<script src="../../assets/site.js"></script>
+
+</body></html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BMI Calculator – Body Mass Index for Adults (kg or lb)</title>
+<meta name="description" content="Calculate your Body Mass Index in metric or imperial units. See your WHO weight category, a healthy weight range for your height, and what BMI does not tell you.">
+<link rel="canonical" href="https://spaceplantcorporationofficial.github.io/tooldeck/tools/bmi-calculator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tooldeck">
+<meta property="og:title" content="BMI Calculator – Body Mass Index for Adults (kg or lb)">
+<meta property="og:description" content="Calculate your Body Mass Index in metric or imperial units. See your WHO weight category, a healthy weight range for your height, and what BMI does not tell you.">
+<meta property="og:url" content="https://spaceplantcorporationofficial.github.io/tooldeck/tools/bmi-calculator/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BMI Calculator","url":"https://spaceplantcorporationofficial.github.io/tooldeck/tools/bmi-calculator/","description":"Calculate your Body Mass Index in metric or imperial units. See your WHO weight category, a healthy weight range for your height, and what BMI does not tell you.","applicationCategory":"HealthApplication","operatingSystem":"Any (web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is BMI calculated?","acceptedAnswer":{"@type":"Answer","text":"BMI is your weight in kilograms divided by your height in meters squared (kg/m²). In imperial units it is 703 × pounds ÷ inches²."}},{"@type":"Question","name":"What is a healthy BMI?","acceptedAnswer":{"@type":"Answer","text":"For adults, the World Health Organization classifies 18.5–24.9 as healthy weight, 25–29.9 as overweight and 30 or more as obesity. Below 18.5 is underweight."}},{"@type":"Question","name":"Is BMI accurate for everyone?","acceptedAnswer":{"@type":"Answer","text":"No. BMI does not distinguish muscle from fat, so athletes may score high, and it can underestimate risk in older adults. Some guidelines use lower thresholds for people of Asian descent. It is a screening tool, not a diagnosis."}},{"@type":"Question","name":"Does this work for children?","acceptedAnswer":{"@type":"Answer","text":"No. Children and teens need age- and sex-specific BMI percentiles. Talk to a pediatrician for those."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to use the BMI Calculator","step":[{"@type":"HowToStep","position":1,"text":"Choose imperial or metric units."},{"@type":"HowToStep","position":2,"text":"Enter your height and weight. Results update as you type."},{"@type":"HowToStep","position":3,"text":"Compare your BMI with the WHO categories and the weight range for your height."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tooldeck","item":"https://spaceplantcorporationofficial.github.io/tooldeck/"},{"@type":"ListItem","position":2,"name":"BMI Calculator","item":"https://spaceplantcorporationofficial.github.io/tooldeck/tools/bmi-calculator/"}]}</script>
+</head>
+<body>
+<header class="site"><a class="brand" href="../../">⚡ <span>Tooldeck</span></a>
+<nav><a href="../../#tools">All tools</a><a href="../../pro/">Pro ⚡</a><a href="../../about/">About</a></nav></header>
+<main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Tooldeck</a> › Health › BMI Calculator</nav>
+<h1>⚖️ BMI Calculator</h1>
+<p class="lead">Find your Body Mass Index and the healthy weight range for your height, in kilograms or pounds.</p>
+
+<div class="card">
+  <label for="bunits">Units</label>
+  <select id="bunits"><option value="imp">Imperial (ft, in, lb)</option><option value="met">Metric (cm, kg)</option></select>
+  <div class="row" id="bimp">
+    <div><label for="bft">Height (feet)</label><input id="bft" type="number" min="0" value="5"></div>
+    <div><label for="bin">Height (inches)</label><input id="bin" type="number" min="0" step="0.5" value="9"></div>
+    <div><label for="blb">Weight (lb)</label><input id="blb" type="number" min="0" step="0.1" value="165"></div>
+  </div>
+  <div class="row" id="bmet" hidden>
+    <div><label for="bcm">Height (cm)</label><input id="bcm" type="number" min="0" value="175"></div>
+    <div><label for="bkg">Weight (kg)</label><input id="bkg" type="number" min="0" step="0.1" value="75"></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="bmi">–</b><span>Your BMI</span></div>
+    <div class="stat"><b id="bcat">–</b><span>WHO category</span></div>
+    <div class="stat"><b id="brange">–</b><span>Healthy weight for your height</span></div>
+  </div>
+  <div style="overflow-x:auto"><table><thead><tr><th>Category</th><th>BMI range</th><th>Weight range for you</th></tr></thead><tbody id="btbl"></tbody></table></div>
+</div>
+
+<section class="prose"><h2>How to use the BMI Calculator</h2><ol><li>Choose imperial or metric units.</li><li>Enter your height and weight. Results update as you type.</li><li>Compare your BMI with the WHO categories and the weight range for your height.</li></ol></section>
+<section class="faq prose"><h2>Frequently asked questions</h2>
+<details><summary>How is BMI calculated?</summary><p>BMI is your weight in kilograms divided by your height in meters squared (kg/m²). In imperial units it is 703 × pounds ÷ inches².</p></details>
+<details><summary>What is a healthy BMI?</summary><p>For adults, the World Health Organization classifies 18.5–24.9 as healthy weight, 25–29.9 as overweight and 30 or more as obesity. Below 18.5 is underweight.</p></details>
+<details><summary>Is BMI accurate for everyone?</summary><p>No. BMI does not distinguish muscle from fat, so athletes may score high, and it can underestimate risk in older adults. Some guidelines use lower thresholds for people of Asian descent. It is a screening tool, not a diagnosis.</p></details>
+<details><summary>Does this work for children?</summary><p>No. Children and teens need age- and sex-specific BMI percentiles. Talk to a pediatrician for those.</p></details>
+</section>
+<section><h2>More free tools</h2><div class="grid">
+<a class="card tool-link" href="../../tools/csv-json-converter/"><div class="emoji">🔄</div><h3>CSV ↔ JSON Converter</h3><p>Turn spreadsheets into JSON for your code, or JSON arrays back into CSV for Excel and Google Sheets.</p></a>
+<a class="card tool-link" href="../../tools/uuid-generator/"><div class="emoji">🆔</div><h3>UUID Generator</h3><p>Create universally unique identifiers for databases, APIs and tests, with crypto-secure randomness.</p></a>
+<a class="card tool-link" href="../../tools/tip-calculator/"><div class="emoji">🍽️</div><h3>Tip &amp; Bill Split Calculator</h3><p>Get the tip, the total and exactly what each person owes in seconds, with optional rounding so nobody needs coins.</p></a>
+<a class="card tool-link" href="../../tools/time-zone-converter/"><div class="emoji">🌍</div><h3>Time Zone Converter</h3><p>Pick a time in one city and instantly see it everywhere else, with daylight saving handled automatically.</p></a>
+</div></section>
+</main><footer class="site"><span>© 2026 Tooldeck · Free, fast, private browser tools. No sign-up, no uploads.</span>
+<span><a href="../../privacy/">Privacy</a> · <a href="../../sitemap.xml">Sitemap</a></span></footer>
+<script>window.TD_CFG={"proLink":"","proPrice":"$9","root":"../../","slug":"bmi-calculator"}</script>
+<script src="../../assets/site.js"></script>
+<script src="../../assets/tools/bmi-calculator.js"></script>
+</body></html>
