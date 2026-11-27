@@ -455,5 +455,121 @@ export default [
       ['Can I calculate age at a specific date?', 'Yes. Change the "Age on this date" field to any past or future date, for example to check eligibility on a deadline.'],
       ['Is my birth date stored?', 'No. Everything is calculated in your browser and nothing is sent or saved.']
     ]
+  },
+  {
+    slug: 'bmi-calculator',
+    emoji: '⚖️',
+    category: 'Health',
+    name: 'BMI Calculator',
+    title: 'BMI Calculator – Body Mass Index for Adults (kg or lb)',
+    description: 'Calculate your Body Mass Index in metric or imperial units. See your WHO weight category, a healthy weight range for your height, and what BMI does not tell you.',
+    h1: 'BMI Calculator',
+    lead: 'Find your Body Mass Index and the healthy weight range for your height, in kilograms or pounds.',
+    appCategory: 'HealthApplication',
+    body: `
+<div class="card">
+  <label for="bunits">Units</label>
+  <select id="bunits"><option value="imp">Imperial (ft, in, lb)</option><option value="met">Metric (cm, kg)</option></select>
+  <div class="row" id="bimp">
+    <div><label for="bft">Height (feet)</label><input id="bft" type="number" min="0" value="5"></div>
+    <div><label for="bin">Height (inches)</label><input id="bin" type="number" min="0" step="0.5" value="9"></div>
+    <div><label for="blb">Weight (lb)</label><input id="blb" type="number" min="0" step="0.1" value="165"></div>
+  </div>
+  <div class="row" id="bmet" hidden>
+    <div><label for="bcm">Height (cm)</label><input id="bcm" type="number" min="0" value="175"></div>
+    <div><label for="bkg">Weight (kg)</label><input id="bkg" type="number" min="0" step="0.1" value="75"></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="bmi">–</b><span>Your BMI</span></div>
+    <div class="stat"><b id="bcat">–</b><span>WHO category</span></div>
+    <div class="stat"><b id="brange">–</b><span>Healthy weight for your height</span></div>
+  </div>
+  <div style="overflow-x:auto"><table><thead><tr><th>Category</th><th>BMI range</th><th>Weight range for you</th></tr></thead><tbody id="btbl"></tbody></table></div>
+</div>`,
+    howto: [
+      'Choose imperial or metric units.',
+      'Enter your height and weight. Results update as you type.',
+      'Compare your BMI with the WHO categories and the weight range for your height.'
+    ],
+    faq: [
+      ['How is BMI calculated?', 'BMI is your weight in kilograms divided by your height in meters squared (kg/m²). In imperial units it is 703 × pounds ÷ inches².'],
+      ['What is a healthy BMI?', 'For adults, the World Health Organization classifies 18.5–24.9 as healthy weight, 25–29.9 as overweight and 30 or more as obesity. Below 18.5 is underweight.'],
+      ['Is BMI accurate for everyone?', 'No. BMI does not distinguish muscle from fat, so athletes may score high, and it can underestimate risk in older adults. Some guidelines use lower thresholds for people of Asian descent. It is a screening tool, not a diagnosis.'],
+      ['Does this work for children?', 'No. Children and teens need age- and sex-specific BMI percentiles. Talk to a pediatrician for those.']
+    ]
+  },
+  {
+    slug: 'csv-json-converter',
+    emoji: '🔄',
+    category: 'Developer',
+    name: 'CSV ↔ JSON Converter',
+    title: 'CSV to JSON Converter (and JSON to CSV) – Free & Private',
+    description: 'Convert CSV to JSON and JSON to CSV in your browser. Handles quoted fields, commas, newlines, semicolon and tab delimiters, and nested values. Nothing is uploaded.',
+    h1: 'CSV ↔ JSON Converter',
+    lead: 'Turn spreadsheets into JSON for your code, or JSON arrays back into CSV for Excel and Google Sheets.',
+    appCategory: 'DeveloperApplication',
+    body: `
+<div class="card">
+  <label for="cjin">Input (CSV or JSON)</label>
+  <textarea id="cjin" spellcheck="false">name,city,score
+"Smith, Jane",Berlin,92
+Ali,"New
+York",88</textarea>
+  <div class="row">
+    <div><label for="cjdelim">CSV delimiter</label><select id="cjdelim"><option value="auto">Auto-detect</option><option value=",">Comma ,</option><option value=";">Semicolon ;</option><option value="\t">Tab</option></select></div>
+    <div><label class="check" style="margin-top:34px"><input type="checkbox" id="cjtypes" checked> Convert numbers &amp; true/false</label></div>
+  </div>
+  <div class="btns"><button id="tojson">CSV → JSON</button><button id="tocsv" class="secondary">JSON → CSV</button><button id="cjcopy" class="secondary">Copy output</button><button id="cjdl" class="secondary">Download</button></div>
+  <div id="cjmsg" class="msg" role="status"></div>
+  <label for="cjout">Output</label>
+  <textarea id="cjout" spellcheck="false" readonly></textarea>
+</div>`,
+    howto: [
+      'Paste CSV with a header row, or a JSON array of objects.',
+      'Click CSV → JSON or JSON → CSV.',
+      'Copy the result or download it as a .json or .csv file.'
+    ],
+    faq: [
+      ['Does it handle commas and line breaks inside fields?', 'Yes. It follows the RFC 4180 CSV standard: fields wrapped in double quotes can contain commas, line breaks and escaped quotes ("").'],
+      ['What JSON format does it produce?', 'An array of objects, one per row, using the header row as keys. Numbers and true/false are converted to real JSON types unless you turn that off.'],
+      ['How are nested JSON values converted to CSV?', 'Columns are the union of all keys across objects. Nested objects and arrays are written as JSON text inside the cell so no data is lost.'],
+      ['Is my data uploaded?', 'No. Conversion happens entirely in your browser, which makes it safe for customer lists and other private data.']
+    ]
+  },
+  {
+    slug: 'uuid-generator',
+    emoji: '🆔',
+    category: 'Developer',
+    name: 'UUID Generator',
+    title: 'UUID Generator – Random v4 & Time-Ordered v7 UUIDs',
+    description: 'Generate random UUID v4 or time-sortable UUID v7 identifiers using secure randomness. Uppercase, no-hyphen and bulk options. Validate and inspect any UUID too.',
+    h1: 'UUID / GUID Generator',
+    lead: 'Create universally unique identifiers for databases, APIs and tests, with crypto-secure randomness.',
+    appCategory: 'DeveloperApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="uver">Version</label><select id="uver"><option value="4">v4 (random)</option><option value="7">v7 (time-ordered)</option></select></div>
+    <div><label for="ucount">How many</label><input id="ucount" type="number" min="1" max="1000" value="5"></div>
+    <div><label class="check" style="margin-top:34px"><input type="checkbox" id="uupper"> UPPERCASE</label><label class="check"><input type="checkbox" id="unohyph"> No hyphens</label></div>
+  </div>
+  <div class="btns"><button id="ugen">Generate</button><button id="ucopy" class="secondary">Copy all</button><button id="udl" class="secondary">Download .txt</button></div>
+  <div id="umsg" class="msg"></div>
+  <textarea id="uout" spellcheck="false" readonly style="min-height:160px"></textarea>
+  <h3 style="margin-top:22px">Validate / inspect a UUID</h3>
+  <input id="uchk" type="text" placeholder="Paste a UUID…">
+  <div id="uchkres" class="msg"></div>
+</div>`,
+    howto: [
+      'Choose v4 for fully random IDs or v7 for IDs that sort by creation time.',
+      'Pick how many you need and any formatting options, then click Generate.',
+      'Paste any UUID into the validator to see its version and variant (and timestamp for v7).'
+    ],
+    faq: [
+      ['What is the difference between UUID v4 and v7?', 'v4 is 122 bits of randomness. v7 (RFC 9562) starts with a millisecond Unix timestamp followed by random bits, so IDs sort in creation order. That makes database indexes much more efficient.'],
+      ['Can two UUIDs ever collide?', 'In practice, no. With v4 you would need to generate about 2.7 quintillion IDs to have a 50% chance of a single collision.'],
+      ['Is a GUID the same as a UUID?', 'Yes. GUID is Microsoft\'s name for the same 128-bit identifier format.'],
+      ['How many can I generate?', 'Up to 10 at a time for free. Tooldeck Pro lets you generate up to 1,000 at once.']
+    ]
   }
 ];

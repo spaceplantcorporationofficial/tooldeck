@@ -41,7 +41,7 @@ window.TD = {
       m.innerHTML = `<div class="card pro-modal" role="dialog" aria-modal="true" aria-labelledby="td-pro-h">
         <h2 id="td-pro-h" style="margin-top:0">⚡ Unlock Tooldeck Pro</h2>
         <p><b id="td-pro-f"></b> is a Pro feature.</p>
-        <ul><li>CSV export on every calculator &amp; table</li><li>Unlimited image batch compression</li><li>Bulk password generation</li><li>Every future Pro feature, on every tool</li></ul>
+        <ul><li>CSV export on every calculator &amp; table</li><li>Unlimited image batch compression</li><li>Bulk passwords &amp; UUIDs</li><li>Every future Pro feature, on every tool</li></ul>
         <p><b>${this.cfg.proPrice || ''} one-time.</b> No subscription, no account.</p>
         <div class="btns"><a class="btn" id="td-pro-buy" target="_blank" rel="noopener">Get Pro</a><button class="secondary" id="td-pro-close">Maybe later</button></div>
         <p style="font-size:.85rem;color:var(--muted)">Secure checkout by Stripe. Already bought? <a href="${this.cfg.root || ''}pro/thanks/">Restore Pro</a></p></div>`;

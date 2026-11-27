@@ -171,7 +171,7 @@ for (const [slug, [h, title, desc, html]] of Object.entries(pages)) {
       offers: { '@type': 'Offer', price: cfg.stripe.proPrice.replace(/[^0-9.]/g, ''), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url } }] }) +
     `<main class="prose"><h1>⚡ ${esc(cfg.name)} Pro</h1><p class="lead">Every tool stays free. Pro adds power features to all of them, for a one-time price.</p>
 <div class="card"><div class="price">${esc(cfg.stripe.proPrice)} <span style="font-size:1rem;color:var(--muted);font-weight:500">one-time · lifetime</span></div>
-<ul><li>⬇ CSV export on every calculator and results table</li><li>🗜️ Unlimited batch image compression (free: 5 per batch)</li><li>🔐 Bulk password generation (25 at a time) with download</li><li>✨ Every future Pro feature on every new tool, no extra cost</li></ul>
+<ul><li>⬇ CSV export on every calculator and results table</li><li>🗜️ Unlimited batch image compression (free: 5 per batch)</li><li>🔐 Bulk password generation (25 at a time) and up to 1,000 UUIDs at once</li><li>✨ Every future Pro feature on every new tool, no extra cost</li></ul>
 <div class="btns">${buy}</div><p style="font-size:.85rem;color:var(--muted)">Secure checkout by Stripe. No account or subscription. Pro is stored in your browser; restore anytime from the link in your receipt.</p></div>
 <h2>FAQ</h2><div class="faq"><details><summary>Is Tooldeck still free?</summary><p>Yes. Every tool works for free. Pro adds extra power features.</p></details>
 <details><summary>Is it a subscription?</summary><p>No. Pay once and keep Pro on this browser forever.</p></details>
