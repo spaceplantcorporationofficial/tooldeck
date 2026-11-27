@@ -571,5 +571,49 @@ York",88</textarea>
       ['Is a GUID the same as a UUID?', 'Yes. GUID is Microsoft\'s name for the same 128-bit identifier format.'],
       ['How many can I generate?', 'Up to 10 at a time for free. Tooldeck Pro lets you generate up to 1,000 at once.']
     ]
+  },
+  {
+    slug: 'tip-calculator',
+    emoji: '🍽️',
+    category: 'Everyday',
+    name: 'Tip & Bill Split Calculator',
+    title: 'Tip Calculator – Split the Bill & Tip Per Person',
+    description: 'Work out the tip and split a restaurant bill between friends. Choose a tip percentage, tip before or after tax, and round up so each person pays an even amount.',
+    h1: 'Tip & Split Bill Calculator',
+    lead: 'Get the tip, the total and exactly what each person owes in seconds, with optional rounding so nobody needs coins.',
+    appCategory: 'FinanceApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="tbill">Bill total incl. tax ($)</label><input id="tbill" type="number" min="0" step="0.01" value="86.40"></div>
+    <div><label for="ttax">Tax included in bill ($)</label><input id="ttax" type="number" min="0" step="0.01" value="6.40"></div>
+    <div><label for="tpeople">People</label><input id="tpeople" type="number" min="1" value="3"></div>
+  </div>
+  <label for="tpct">Tip: <span id="tpctv">18</span>%</label>
+  <input id="tpct" type="range" min="0" max="35" value="18">
+  <div class="btns" id="tquick"><button class="secondary" data-p="15">15%</button><button class="secondary" data-p="18">18%</button><button class="secondary" data-p="20">20%</button><button class="secondary" data-p="25">25%</button></div>
+  <div class="row" style="margin-top:8px">
+    <label class="check"><input type="checkbox" id="tpretax"> Tip on pre-tax amount</label>
+    <label class="check"><input type="checkbox" id="tround"> Round each share up to whole dollars</label>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="ttip">–</b><span>Tip</span></div>
+    <div class="stat"><b id="ttotal">–</b><span>Total with tip</span></div>
+    <div class="stat"><b id="teach" class="good">–</b><span>Each person pays</span></div>
+    <div class="stat"><b id="ttipeach">–</b><span>Tip per person</span></div>
+  </div>
+  <div class="msg" id="tnote"></div>
+</div>`,
+    howto: [
+      'Enter the bill total and, optionally, the tax it includes.',
+      'Pick a tip percentage with the slider or a quick button.',
+      'Enter how many people are splitting, and turn on rounding if you want even amounts.'
+    ],
+    faq: [
+      ['How much should I tip?', 'In the US, 15–20% is standard for table service, with 20% or more for excellent service. Customs vary widely by country; in many places service is included or tipping is optional.'],
+      ['Should I tip before or after tax?', 'Etiquette guides traditionally suggest tipping on the pre-tax amount, but many people tip on the total for simplicity. Turn on "Tip on pre-tax amount" to follow the traditional rule.'],
+      ['How does rounding work?', 'With rounding on, each share is rounded up to the next whole dollar. The extra goes to the tip, and the real tip percentage is shown.'],
+      ['Is this saved anywhere?', 'No. Everything is calculated on your device.']
+    ]
   }
 ];
