@@ -21,7 +21,8 @@ for (const f of files.filter((f) => f.endsWith('.html'))) {
   }
   if (!desc) errors.push(`${rel}: missing meta description`);
   else {
-    if (!html.includes('noindex') && (desc.length < 70 || desc.length > 165)) warns.push(`${rel}: description ${desc.length} chars`);
+    if (!html.includes('noindex') && desc.length > 165) errors.push(`${rel}: description ${desc.length} chars (>165, gets truncated in search results)`);
+    else if (!html.includes('noindex') && desc.length < 70) warns.push(`${rel}: description ${desc.length} chars (<70)`);
     if (descs.has(desc)) errors.push(`${rel}: duplicate description`); descs.set(desc, rel);
   }
   if (!/<link rel="canonical" href="https?:\/\/[^"]+">/.test(html)) errors.push(`${rel}: missing canonical`);

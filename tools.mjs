@@ -695,7 +695,7 @@ Invalid: someone@ and @nowhere</textarea>
     category: 'Design',
     name: 'Lorem Ipsum Generator',
     title: 'Lorem Ipsum Generator – Placeholder Text for Designs',
-    description: 'Generate lorem ipsum placeholder text by paragraphs, sentences or words. Optionally start with "Lorem ipsum dolor sit amet" and wrap paragraphs in HTML tags. Copy in one click.',
+    description: 'Generate lorem ipsum placeholder text by paragraphs, sentences or words, with the classic "Lorem ipsum dolor sit amet" opening and optional HTML tags.',
     h1: 'Lorem Ipsum Generator',
     lead: 'Classic dummy text for mockups, wireframes and layouts, in exactly the amount you need.',
     appCategory: 'DesignApplication',
