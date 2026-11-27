@@ -196,5 +196,194 @@ export default [
       ['How long should my password be?', 'At least 16 characters for random passwords, or 5–6 words for passphrases. Longer is always stronger.'],
       ['What is entropy?', 'Entropy measures how unpredictable a password is, in bits. Each extra bit doubles the guesses an attacker needs. 80 bits or more is considered very strong.']
     ]
+  },
+  {
+    slug: 'mortgage-calculator',
+    emoji: '🏠',
+    category: 'Finance',
+    name: 'Mortgage Calculator',
+    title: 'Mortgage Calculator – Monthly Payment with Taxes & PMI',
+    description: 'Estimate your monthly mortgage payment including principal, interest, property tax, insurance and HOA. See total interest and a yearly amortization table.',
+    h1: 'Mortgage Payment Calculator',
+    lead: 'Work out your real monthly housing cost, not just principal and interest, and see how your loan balance falls each year.',
+    appCategory: 'FinanceApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="price">Home price ($)</label><input id="price" type="number" min="0" value="400000"></div>
+    <div><label for="down">Down payment (%)</label><input id="down" type="number" min="0" max="100" step="0.5" value="20"></div>
+    <div><label for="rate">Interest rate (%)</label><input id="rate" type="number" min="0" step="0.05" value="6.5"></div>
+    <div><label for="term">Loan term</label><select id="term"><option value="30">30 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div>
+    <div><label for="tax">Property tax (%/yr)</label><input id="tax" type="number" min="0" step="0.05" value="1.1"></div>
+    <div><label for="ins">Home insurance ($/yr)</label><input id="ins" type="number" min="0" value="1500"></div>
+    <div><label for="hoa">HOA ($/month)</label><input id="hoa" type="number" min="0" value="0"></div>
+    <div><label for="pmi">PMI (%/yr if &lt;20% down)</label><input id="pmi" type="number" min="0" step="0.05" value="0.5"></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="mtotal">–</b><span>Total monthly payment</span></div>
+    <div class="stat"><b id="mpi">–</b><span>Principal &amp; interest</span></div>
+    <div class="stat"><b id="mextra">–</b><span>Tax, insurance, HOA &amp; PMI</span></div>
+    <div class="stat"><b id="mloan">–</b><span>Loan amount</span></div>
+    <div class="stat"><b id="mint">–</b><span>Total interest</span></div>
+  </div>
+  <div style="overflow-x:auto"><table><thead><tr><th>Year</th><th>Principal paid</th><th>Interest paid</th><th>Remaining balance</th></tr></thead><tbody id="am"></tbody></table></div>
+</div>`,
+    howto: [
+      'Enter the home price, your down payment percentage and the interest rate you were quoted.',
+      'Pick the loan term and fill in property tax, insurance and any HOA dues.',
+      'If you put down less than 20%, set your PMI rate (typically 0.3–1.5% per year).',
+      'Review your total monthly payment and the amortization table.'
+    ],
+    faq: [
+      ['How is the monthly mortgage payment calculated?', 'Principal and interest use the standard amortization formula M = L·r / (1 − (1 + r)^−n), where L is the loan amount, r the monthly rate and n the number of payments. Taxes, insurance, HOA and PMI are then added.'],
+      ['What is PMI?', 'Private mortgage insurance is usually required on conventional loans with less than 20% down. It typically costs 0.3–1.5% of the loan per year and can be removed once you reach about 20% equity.'],
+      ['Should I choose a 15-year or 30-year mortgage?', 'A 15-year loan has higher monthly payments but usually a lower rate and far less total interest. A 30-year loan keeps payments lower and more flexible.'],
+      ['Is this an official loan quote?', 'No. It is an estimate for planning. Lenders will factor in your credit, fees and local taxes.']
+    ]
+  },
+  {
+    slug: 'percentage-calculator',
+    emoji: '➗',
+    category: 'Finance',
+    name: 'Percentage Calculator',
+    title: 'Percentage Calculator – Percent Of, Change & Difference',
+    description: 'Calculate percentages instantly: what is X% of Y, X is what percent of Y, and percentage increase or decrease between two numbers. Shows the formula too.',
+    h1: 'Percentage Calculator',
+    lead: 'Three of the most common percentage questions, answered as you type, with the formula shown so you can check the math.',
+    appCategory: 'UtilitiesApplication',
+    body: `
+<div class="card">
+  <h3>What is X% of Y?</h3>
+  <div class="row"><div><label for="a1">Percent (%)</label><input id="a1" type="number" value="15"></div><div><label for="b1">Of value</label><input id="b1" type="number" value="80"></div></div>
+  <div class="out" id="r1"></div>
+  <h3 style="margin-top:22px">X is what percent of Y?</h3>
+  <div class="row"><div><label for="a2">Value X</label><input id="a2" type="number" value="30"></div><div><label for="b2">Total Y</label><input id="b2" type="number" value="120"></div></div>
+  <div class="out" id="r2"></div>
+  <h3 style="margin-top:22px">Percentage change from X to Y</h3>
+  <div class="row"><div><label for="a3">From</label><input id="a3" type="number" value="50"></div><div><label for="b3">To</label><input id="b3" type="number" value="65"></div></div>
+  <div class="out" id="r3"></div>
+</div>`,
+    howto: [
+      'Pick the question that matches your problem.',
+      'Type your two numbers. The answer and formula update instantly.',
+      'For discounts, use "X% of Y" and subtract the result from the price.'
+    ],
+    faq: [
+      ['How do I calculate a percentage of a number?', 'Multiply the number by the percentage and divide by 100. For example, 15% of 80 is 80 × 15 / 100 = 12.'],
+      ['How do I find what percent one number is of another?', 'Divide the part by the whole and multiply by 100. For example, 30 out of 120 is 30 / 120 × 100 = 25%.'],
+      ['How is percentage change calculated?', 'Subtract the old value from the new value, divide by the old value and multiply by 100. Going from 50 to 65 is (65 − 50) / 50 × 100 = +30%.'],
+      ['What is the difference between percent change and percentage points?', 'If a rate rises from 4% to 5%, that is a 1 percentage point increase but a 25% relative increase.']
+    ]
+  },
+  {
+    slug: 'case-converter',
+    emoji: '🔠',
+    category: 'Writing',
+    name: 'Case Converter',
+    title: 'Case Converter – UPPER, lower, Title, camelCase & snake_case',
+    description: 'Convert text to uppercase, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case or CONSTANT_CASE with one click. Free.',
+    h1: 'Text Case Converter',
+    lead: 'Fix accidental caps lock, format headlines, or turn phrases into variable names, instantly.',
+    appCategory: 'UtilitiesApplication',
+    body: `
+<div class="card">
+  <label for="ct">Text</label>
+  <textarea id="ct" placeholder="Type or paste text, then pick a case…"></textarea>
+  <div class="btns" id="cases">
+    <button data-c="upper">UPPERCASE</button><button data-c="lower" class="secondary">lowercase</button>
+    <button data-c="title" class="secondary">Title Case</button><button data-c="sentence" class="secondary">Sentence case</button>
+    <button data-c="camel" class="secondary">camelCase</button><button data-c="pascal" class="secondary">PascalCase</button>
+    <button data-c="snake" class="secondary">snake_case</button><button data-c="kebab" class="secondary">kebab-case</button>
+    <button data-c="constant" class="secondary">CONSTANT_CASE</button><button data-c="alt" class="secondary">aLtErNaTiNg</button>
+  </div>
+  <div class="btns"><button id="ccopy">Copy</button><button id="cclear" class="secondary">Clear</button></div>
+</div>`,
+    howto: [
+      'Paste or type your text.',
+      'Click any case button to convert the text in place.',
+      'Copy the result with one click.'
+    ],
+    faq: [
+      ['What is Title Case?', 'Title Case capitalizes the main words of a headline. This tool keeps short words such as "a", "and", "of" and "the" lowercase unless they start the title, following common style guides.'],
+      ['What is the difference between camelCase and PascalCase?', 'Both join words without spaces. camelCase starts with a lowercase letter (myVariableName), while PascalCase capitalizes every word (MyVariableName).'],
+      ['When should I use snake_case or kebab-case?', 'snake_case is common in Python and databases; kebab-case is used in URLs, CSS classes and file names. CONSTANT_CASE is used for constants and environment variables.'],
+      ['Is my text stored?', 'No. Conversion happens entirely in your browser.']
+    ]
+  },
+  {
+    slug: 'base64-encoder-decoder',
+    emoji: '🔁',
+    category: 'Developer',
+    name: 'Base64 Encoder & Decoder',
+    title: 'Base64 Encode & Decode Online – Text, URL-safe & Files',
+    description: 'Encode text to Base64 or decode Base64 back to text with full UTF-8 and emoji support. URL-safe mode and file to Base64 data URI conversion included.',
+    h1: 'Base64 Encoder & Decoder',
+    lead: 'Convert text and files to and from Base64, with proper Unicode handling and a URL-safe option.',
+    appCategory: 'DeveloperApplication',
+    body: `
+<div class="card">
+  <label for="b64in">Input</label>
+  <textarea id="b64in" spellcheck="false" placeholder="Text to encode, or Base64 to decode"></textarea>
+  <label class="check"><input type="checkbox" id="urlsafe"> URL-safe (− and _ instead of + and /, no padding)</label>
+  <div class="btns"><button id="enc">Encode →</button><button id="dec" class="secondary">← Decode</button><button id="swap" class="secondary">Use output as input</button></div>
+  <label for="b64out">Output</label>
+  <textarea id="b64out" spellcheck="false" readonly></textarea>
+  <div id="bmsg" class="msg" role="status"></div>
+  <div class="btns"><button id="bcopy">Copy output</button>
+  <label class="btn secondary" for="bfile">File → Base64 data URI</label><input type="file" id="bfile" class="sr"></div>
+</div>`,
+    howto: [
+      'Paste text and click Encode, or paste Base64 and click Decode.',
+      'Enable URL-safe mode for tokens, JWT parts and query strings.',
+      'Choose a file to turn it into a data URI you can embed in HTML or CSS.'
+    ],
+    faq: [
+      ['What is Base64?', 'Base64 represents binary data using 64 printable characters (A–Z, a–z, 0–9, + and /). It is used to embed images in HTML/CSS, send attachments in email, and pass data in URLs and JSON.'],
+      ['Is Base64 encryption?', 'No. Base64 is an encoding, not encryption. Anyone can decode it, so never use it to protect secrets.'],
+      ['Does it support emoji and non-English text?', 'Yes. Text is converted to UTF-8 bytes before encoding, so emoji, accents and any script decode back exactly.'],
+      ['What is URL-safe Base64?', 'A variant that replaces + with − and / with _ and drops = padding so the output can be used safely in URLs and file names. JWTs use this format.']
+    ]
+  },
+  {
+    slug: 'color-contrast-checker',
+    emoji: '🎨',
+    category: 'Design',
+    name: 'Color Contrast Checker',
+    title: 'Color Contrast Checker – WCAG AA & AAA Accessibility',
+    description: 'Check the contrast ratio between text and background colors against WCAG 2.2 AA and AAA. Live preview and an automatic fix suggestion for failing colors.',
+    h1: 'Color Contrast Checker (WCAG)',
+    lead: 'Make sure your text is readable for everyone. Test any two colors against WCAG accessibility standards and get a passing alternative.',
+    appCategory: 'DesignApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="fg">Text color</label><div style="display:flex;gap:8px"><input type="color" id="fgc" value="#7c5cff" aria-label="Pick text color" style="width:52px;height:44px;border:0;background:none"><input id="fg" type="text" value="#7c5cff"></div></div>
+    <div><label for="bg">Background color</label><div style="display:flex;gap:8px"><input type="color" id="bgc" value="#ffffff" aria-label="Pick background color" style="width:52px;height:44px;border:0;background:none"><input id="bg" type="text" value="#ffffff"></div></div>
+  </div>
+  <div id="preview" style="margin-top:16px;border-radius:12px;padding:20px">
+    <div style="font-size:1.6rem;font-weight:700">Large heading text</div>
+    <div>Normal body text looks like this. The quick brown fox jumps over the lazy dog.</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="ratio">–</b><span>Contrast ratio</span></div>
+    <div class="stat"><b id="aan">–</b><span>AA normal text (4.5:1)</span></div>
+    <div class="stat"><b id="aal">–</b><span>AA large text (3:1)</span></div>
+    <div class="stat"><b id="aaan">–</b><span>AAA normal text (7:1)</span></div>
+    <div class="stat"><b id="aaal">–</b><span>AAA large text (4.5:1)</span></div>
+  </div>
+  <div class="msg" id="suggest"></div>
+  <div class="btns"><button id="cswap" class="secondary">Swap colors</button></div>
+</div>`,
+    howto: [
+      'Enter or pick your text color and background color (hex values like #1a2b3c).',
+      'Read the contrast ratio and the pass/fail results for each WCAG level.',
+      'If a check fails, use the suggested text color that keeps your hue but passes AA.'
+    ],
+    faq: [
+      ['What contrast ratio does WCAG require?', 'WCAG 2.2 level AA requires at least 4.5:1 for normal text and 3:1 for large text. Level AAA requires 7:1 for normal text and 4.5:1 for large text.'],
+      ['What counts as large text?', 'Text that is at least 24px (18pt) regular, or at least 18.66px (14pt) bold.'],
+      ['How is the contrast ratio calculated?', 'It is (L1 + 0.05) / (L2 + 0.05), where L1 and L2 are the relative luminance of the lighter and darker colors, computed from linearized sRGB values.'],
+      ['Why does color contrast matter?', 'Low contrast is one of the most common accessibility failures. Good contrast helps people with low vision, color blindness, and anyone reading on a phone in sunlight.']
+    ]
   }
 ];

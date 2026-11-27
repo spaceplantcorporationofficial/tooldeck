@@ -48,7 +48,7 @@
   mode.addEventListener('input', () => {
     const pp = mode.value === 'pp';
     Object.assign(len, pp ? { min: 3, max: 12 } : { min: 6, max: 64 });
-    len.value = pp ? 6 : 20;
+    len.value = pp ? 8 : 20;
   });
   [len, mode, ...['up', 'lo', 'di', 'sy', 'am'].map((k) => $('#' + k))].forEach((el) => el.addEventListener('input', generate));
   $('#gen').onclick = generate;

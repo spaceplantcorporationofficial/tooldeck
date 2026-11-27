@@ -69,7 +69,9 @@ for (const t of tools) {
   const url = `${SITE}/tools/${t.slug}/`;
   urls.push(url);
   const root = '../../';
-  const related = tools.filter((x) => x.slug !== t.slug).slice(0, 4);
+  const idx = tools.indexOf(t);
+  const rotated = [...tools.slice(idx + 1), ...tools.slice(0, idx)];
+  const related = [...rotated.filter((x) => x.category === t.category), ...rotated.filter((x) => x.category !== t.category)].slice(0, 4);
   const jsonld = [
     {
       '@context': 'https://schema.org', '@type': 'WebApplication', name: t.name, url,
@@ -116,7 +118,7 @@ const cats = [...new Set(tools.map((t) => t.category))];
 write('index.html',
   head({
     title: `${cfg.name} – Free Online Tools That Run in Your Browser`,
-    description: `${tools.length}+ free, fast and private online tools: image compressor, JSON formatter, compound interest calculator, word counter and more. No sign-up.`,
+    description: `${tools.length} free, fast and private online tools: image compressor, mortgage calculator, JSON formatter, word counter, password generator and more.`,
     url: SITE + '/', root: '',
     jsonld: [
       { '@context': 'https://schema.org', '@type': 'WebSite', name: cfg.name, url: SITE + '/', description: cfg.tagline },
