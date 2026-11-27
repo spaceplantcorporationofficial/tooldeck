@@ -419,5 +419,41 @@ export default [
       ['How many pounds are in a kilogram?', 'One kilogram is about 2.20462 pounds. One pound is exactly 0.45359237 kilograms.'],
       ['What is the difference between MB and MiB?', 'A megabyte (MB) is 1,000,000 bytes, while a mebibyte (MiB) is 1,048,576 bytes (2^20). Storage makers use MB/GB; operating systems often show MiB/GiB.']
     ]
+  },
+  {
+    slug: 'age-calculator',
+    emoji: '🎂',
+    category: 'Everyday',
+    name: 'Age Calculator',
+    title: 'Age Calculator – Exact Age in Years, Months & Days',
+    description: 'Calculate your exact age in years, months and days from your date of birth. See total weeks, days and hours lived, the weekday you were born and your next birthday.',
+    h1: 'Age Calculator',
+    lead: 'Enter a date of birth to get an exact age, a countdown to the next birthday, and fun totals like days and hours lived.',
+    appCategory: 'UtilitiesApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="dob">Date of birth</label><input id="dob" type="date" value="1995-06-15"></div>
+    <div><label for="asof">Age on this date</label><input id="asof" type="date"></div>
+  </div>
+  <div class="out" id="agemain" aria-live="polite"></div>
+  <div class="stats">
+    <div class="stat"><b id="nextbd">–</b><span>Until next birthday</span></div>
+    <div class="stat"><b id="bornday">–</b><span>Day of the week born</span></div>
+    <div class="stat"><b id="turning">–</b><span>Next birthday age</span></div>
+  </div>
+  <div style="overflow-x:auto"><table><thead><tr><th>Unit</th><th>Total lived</th></tr></thead><tbody id="agetbl"></tbody></table></div>
+</div>`,
+    howto: [
+      'Pick a date of birth.',
+      'Optionally change "Age on this date" to work out age at a past or future date.',
+      'Read the exact age, next-birthday countdown and totals in other units.'
+    ],
+    faq: [
+      ['How is exact age calculated?', 'The calculator counts full years first, then full months, then remaining days, the same way age is counted on official documents. Month lengths and leap years are handled automatically.'],
+      ['What if I was born on February 29?', 'In non-leap years this calculator treats February 28 as your birthday, for both your age and the countdown. Some countries, such as the UK, legally use March 1 instead, so check local rules for legal deadlines.'],
+      ['Can I calculate age at a specific date?', 'Yes. Change the "Age on this date" field to any past or future date, for example to check eligibility on a deadline.'],
+      ['Is my birth date stored?', 'No. Everything is calculated in your browser and nothing is sent or saved.']
+    ]
   }
 ];
