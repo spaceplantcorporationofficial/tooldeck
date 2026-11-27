@@ -158,8 +158,8 @@ for (const [slug, [h, title, desc, html]] of Object.entries(pages)) {
     `<main class="prose"><h1>${esc(h)}</h1>${html}</main>` + foot('../'));
 }
 
-write('404.html', head({ title: `Page not found – ${cfg.name}`, description: 'This page does not exist.', url: SITE + '/404.html', root: '/', jsonld: [] })
-  .replace('index,follow', 'noindex') + `<main><h1>Page not found</h1><p class="lead">Try one of our <a href="/">free tools</a>.</p></main>` + foot('/'));
+write('404.html', head({ title: `Page not found – ${cfg.name}`, description: 'This page does not exist.', url: SITE + '/404.html', root: SITE + '/', jsonld: [] })
+  .replace('index,follow', 'noindex') + `<main><h1>Page not found</h1><p class="lead">Try one of our <a href="${SITE}/">free tools</a>.</p></main>` + foot(SITE + '/'));
 
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
