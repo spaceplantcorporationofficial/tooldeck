@@ -1,7 +1,8 @@
 #!/bin/sh
 # Build, verify, and publish dist/ to the gh-pages branch.
 set -e
-cd "$(dirname "$0")"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$ROOT"
 node build.mjs && node check.mjs
 REMOTE=$(git remote get-url origin)
 cd dist
@@ -11,6 +12,6 @@ git push -qf "$REMOTE" gh-pages
 rm -rf .git
 echo "Deployed."
 # Give Pages ~60s to publish, then notify search engines.
-cd "$(dirname "$0")"
+cd "$ROOT"
 sleep 60
 node indexnow.mjs || true

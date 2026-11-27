@@ -52,6 +52,13 @@
   });
   [len, mode, ...['up', 'lo', 'di', 'sy', 'am'].map((k) => $('#' + k))].forEach((el) => el.addEventListener('input', generate));
   $('#gen').onclick = generate;
+  const bulk = $('#bulk');
+  bulk.innerHTML += TD.proBadge();
+  bulk.onclick = () => {
+    if (!TD.requirePro('Bulk password generation')) return;
+    const list = Array.from({ length: 25 }, () => (generate(), out.textContent));
+    TD.download('passwords.txt', list.join('\n') + '\n');
+  };
   $('#cp').onclick = (e) => copy(out.textContent, e.target);
   generate();
 })();

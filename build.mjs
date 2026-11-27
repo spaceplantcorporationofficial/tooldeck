@@ -5,6 +5,7 @@ import tools from './tools.mjs';
 const cfg = JSON.parse(fs.readFileSync('site.config.json', 'utf8'));
 const SITE = (process.env.SITE_URL || cfg.siteUrl).replace(/\/$/, '');
 const SUPPORT = process.env.STRIPE_SUPPORT_LINK || cfg.stripe.supportLink;
+const PRO = process.env.STRIPE_PRO_LINK || cfg.stripe.proLink;
 const OUT = 'dist';
 const today = new Date().toISOString().slice(0, 10);
 
@@ -34,7 +35,7 @@ ${jsonld.map(ld).join('\n')}
 </head>
 <body>
 <header class="site"><a class="brand" href="${root}">⚡ <span>${esc(cfg.name)}</span></a>
-<nav><a href="${root}#tools">All tools</a><a href="${root}about/">About</a></nav></header>`;
+<nav><a href="${root}#tools">All tools</a><a href="${root}pro/">Pro ⚡</a><a href="${root}about/">About</a></nav></header>`;
 }
 
 function supportBox(slug) {
@@ -44,9 +45,10 @@ function supportBox(slug) {
 <a class="btn" href="${esc(href)}" target="_blank" rel="noopener">${esc(cfg.stripe.supportLabel)}</a></aside>`;
 }
 
-function foot(root, scripts = []) {
+function foot(root, scripts = [], slug = 'site') {
   return `<footer class="site"><span>© ${new Date().getFullYear()} ${esc(cfg.name)} · ${esc(cfg.tagline)}</span>
 <span><a href="${root}privacy/">Privacy</a> · <a href="${root}sitemap.xml">Sitemap</a></span></footer>
+<script>window.TD_CFG=${JSON.stringify({ proLink: PRO, proPrice: cfg.stripe.proPrice, root, slug }).replace(/</g, '\\u003c')}</script>
 <script src="${root}assets/site.js"></script>
 ${scripts.map((s) => `<script src="${root}${s}"></script>`).join('\n')}
 </body></html>
@@ -110,7 +112,7 @@ ${t.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></
 <section><h2>More free tools</h2><div class="grid">
 ${related.map((r) => `<a class="card tool-link" href="${root}tools/${r.slug}/"><div class="emoji">${r.emoji}</div><h3>${esc(r.name)}</h3><p>${esc(r.lead)}</p></a>`).join('\n')}
 </div></section>
-</main>` + foot(root, [`assets/tools/${t.slug}.js`]));
+</main>` + foot(root, [`assets/tools/${t.slug}.js`], t.slug));
 }
 
 // Home
@@ -158,6 +160,34 @@ for (const [slug, [h, title, desc, html]] of Object.entries(pages)) {
     `<main class="prose"><h1>${esc(h)}</h1>${html}</main>` + foot('../'));
 }
 
+// Pro sales page + post-checkout unlock page
+{
+  const url = `${SITE}/pro/`;
+  urls.push(url);
+  const buy = PRO ? `<a class="btn" href="${esc(PRO + (PRO.includes('?') ? '&' : '?') + 'client_reference_id=pro-page')}" target="_blank" rel="noopener">Get Tooldeck Pro – ${esc(cfg.stripe.proPrice)}</a>`
+    : `<p class="msg">Pro checkout is launching soon.</p>`;
+  write('pro/index.html', head({ title: `${cfg.name} Pro – Unlock Pro Features on Every Tool`, description: `Tooldeck Pro: one-time ${cfg.stripe.proPrice} unlock for CSV exports, unlimited batch image compression, bulk passwords and every future Pro feature.`, url, root: '../',
+    jsonld: [{ '@context': 'https://schema.org', '@type': 'Product', name: `${cfg.name} Pro`, description: 'Lifetime unlock of Pro features across all Tooldeck tools.', brand: { '@type': 'Brand', name: cfg.name },
+      offers: { '@type': 'Offer', price: cfg.stripe.proPrice.replace(/[^0-9.]/g, ''), priceCurrency: 'USD', availability: 'https://schema.org/InStock', url } }] }) +
+    `<main class="prose"><h1>⚡ ${esc(cfg.name)} Pro</h1><p class="lead">Every tool stays free. Pro adds power features to all of them, for a one-time price.</p>
+<div class="card"><div class="price">${esc(cfg.stripe.proPrice)} <span style="font-size:1rem;color:var(--muted);font-weight:500">one-time · lifetime</span></div>
+<ul><li>⬇ CSV export on every calculator and results table</li><li>🗜️ Unlimited batch image compression (free: 5 per batch)</li><li>🔐 Bulk password generation (25 at a time) with download</li><li>✨ Every future Pro feature on every new tool, no extra cost</li></ul>
+<div class="btns">${buy}</div><p style="font-size:.85rem;color:var(--muted)">Secure checkout by Stripe. No account or subscription. Pro is stored in your browser; restore anytime from the link in your receipt.</p></div>
+<h2>FAQ</h2><div class="faq"><details><summary>Is Tooldeck still free?</summary><p>Yes. Every tool works for free. Pro adds extra power features.</p></details>
+<details><summary>Is it a subscription?</summary><p>No. Pay once and keep Pro on this browser forever.</p></details>
+<details><summary>I switched browsers. How do I restore Pro?</summary><p>Open the link from your Stripe receipt email, or visit the Restore Pro page and enter your receipt's checkout reference.</p></details></div></main>` + foot('../', [], 'pro-page'));
+
+  write('pro/thanks/index.html', head({ title: `Welcome to ${cfg.name} Pro`, description: 'Activating Tooldeck Pro in this browser.', url: `${SITE}/pro/thanks/`, root: '../../', jsonld: [] }).replace('index,follow', 'noindex') +
+    `<main class="prose"><h1>⚡ Welcome to Pro</h1><div class="card"><p id="pmsg" class="lead">Activating…</p>
+<div id="restore" hidden><label for="sid">Checkout reference from your receipt (starts with cs_)</label><input id="sid" type="text" placeholder="cs_live_…"><div class="btns"><button id="go">Restore Pro</button></div></div>
+<p><a href="../../">← Back to all tools</a></p></div></main>
+<script>(function(){var m=document.getElementById('pmsg');function ok(id){try{localStorage.setItem('td-pro','1');localStorage.setItem('td-pro-session',id)}catch(e){}m.textContent='Pro is active in this browser. Thank you for supporting ${esc(cfg.name)}! Bookmark this page to restore Pro on another browser.';m.className='lead good';document.getElementById('restore').hidden=true}
+var id=new URLSearchParams(location.search).get('session_id')||'';if(/^cs_(live|test)_[A-Za-z0-9]+$/.test(id)){ok(id);history.replaceState(null,'',location.pathname+'?session_id='+id)}
+else if(localStorage.getItem('td-pro')==='1'){m.textContent='Pro is already active in this browser.';m.className='lead good'}
+else{m.textContent='Enter the checkout reference from your Stripe receipt to restore Pro.';document.getElementById('restore').hidden=false}
+document.getElementById('go').onclick=function(){var v=document.getElementById('sid').value.trim();if(/^cs_(live|test)_[A-Za-z0-9]+$/.test(v))ok(v);else m.textContent='That does not look like a Stripe checkout reference (cs_…).'}})();</script>` + foot('../../', [], 'pro-thanks'));
+}
+
 write('404.html', head({ title: `Page not found – ${cfg.name}`, description: 'This page does not exist.', url: SITE + '/404.html', root: SITE + '/', jsonld: [] })
   .replace('index,follow', 'noindex') + `<main><h1>Page not found</h1><p class="lead">Try one of our <a href="${SITE}/">free tools</a>.</p></main>` + foot(SITE + '/'));
 
@@ -171,4 +201,4 @@ write('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64
 write('.nojekyll', '');
 if (cfg.indexNowKey) write(`${cfg.indexNowKey}.txt`, cfg.indexNowKey);
 
-console.log(`Built ${tools.length} tools, ${urls.length} URLs → ${OUT}/ (site: ${SITE}, stripe: ${SUPPORT ? 'linked' : 'NOT linked'})`);
+console.log(`Built ${tools.length} tools, ${urls.length} URLs → ${OUT}/ (site: ${SITE}, support: ${SUPPORT ? 'linked' : 'NOT linked'}, pro: ${PRO ? 'linked' : 'NOT linked'})`);

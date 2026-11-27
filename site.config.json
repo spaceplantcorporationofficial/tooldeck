@@ -4,7 +4,9 @@
   "siteUrl": "https://spaceplantcorporationofficial.github.io/tooldeck",
   "stripe": {
     "supportLink": "",
-    "supportLabel": "Support Tooldeck"
+    "supportLabel": "Support Tooldeck",
+    "proLink": "",
+    "proPrice": "$9"
   },
   "indexNowKey": "5c90d1cb005857bba7f9ec31b8b63c31"
 }

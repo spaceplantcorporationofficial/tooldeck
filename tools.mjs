@@ -182,7 +182,7 @@ export default [
   <div class="out" id="out" aria-live="polite"></div>
   <div class="meter"><i id="bar"></i></div>
   <div class="msg" id="strength"></div>
-  <div class="btns"><button id="gen">Generate new</button><button id="cp" class="secondary">Copy</button></div>
+  <div class="btns"><button id="gen">Generate new</button><button id="cp" class="secondary">Copy</button><button id="bulk" class="secondary">Generate 25 &amp; download</button></div>
 </div>`,
     howto: [
       'Choose a random password or a memorable multi-word passphrase.',

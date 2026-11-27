@@ -16,6 +16,7 @@
 
   function load(list) {
     files = [...list].filter((f) => f.type.startsWith('image/'));
+    if (files.length > 5 && !TD.requirePro(`Compressing ${files.length} images at once`)) files = files.slice(0, 5);
     if (files.length) run();
   }
 
