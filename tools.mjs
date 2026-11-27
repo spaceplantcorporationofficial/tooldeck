@@ -385,5 +385,39 @@ export default [
       ['How is the contrast ratio calculated?', 'It is (L1 + 0.05) / (L2 + 0.05), where L1 and L2 are the relative luminance of the lighter and darker colors, computed from linearized sRGB values.'],
       ['Why does color contrast matter?', 'Low contrast is one of the most common accessibility failures. Good contrast helps people with low vision, color blindness, and anyone reading on a phone in sunlight.']
     ]
+  },
+  {
+    slug: 'unit-converter',
+    emoji: '📏',
+    category: 'Everyday',
+    name: 'Unit Converter',
+    title: 'Unit Converter – Length, Weight, Temperature & More',
+    description: 'Convert length, weight, temperature, volume, area, speed, data size and time units instantly. Metric and imperial, two-way, with a full conversion table.',
+    h1: 'Unit Converter',
+    lead: 'Fast two-way conversions between metric and imperial units, with every related unit shown at once.',
+    appCategory: 'UtilitiesApplication',
+    body: `
+<div class="card">
+  <label for="ucat">Category</label>
+  <select id="ucat"></select>
+  <div class="row">
+    <div><label for="uval1">From</label><input id="uval1" type="number" value="1" step="any"><select id="u1" aria-label="From unit" style="margin-top:8px"></select></div>
+    <div><label for="uval2">To</label><input id="uval2" type="number" step="any"><select id="u2" aria-label="To unit" style="margin-top:8px"></select></div>
+  </div>
+  <div class="btns"><button id="uswap" class="secondary">⇄ Swap units</button></div>
+  <div class="out" id="uformula"></div>
+  <div style="overflow-x:auto"><table><thead><tr><th>Unit</th><th>Value</th></tr></thead><tbody id="uall"></tbody></table></div>
+</div>`,
+    howto: [
+      'Choose a category such as Length or Temperature.',
+      'Pick the units to convert from and to, then type a value in either box. Conversion works both ways.',
+      'See the same value in every other unit in the table below.'
+    ],
+    faq: [
+      ['How many centimeters are in an inch?', 'Exactly 2.54 centimeters. An inch is defined as 25.4 millimeters.'],
+      ['How do I convert Celsius to Fahrenheit?', 'Multiply by 9/5 and add 32. For example, 20 °C × 9/5 + 32 = 68 °F. To go back, subtract 32 and multiply by 5/9.'],
+      ['How many pounds are in a kilogram?', 'One kilogram is about 2.20462 pounds. One pound is exactly 0.45359237 kilograms.'],
+      ['What is the difference between MB and MiB?', 'A megabyte (MB) is 1,000,000 bytes, while a mebibyte (MiB) is 1,048,576 bytes (2^20). Storage makers use MB/GB; operating systems often show MiB/GiB.']
+    ]
   }
 ];
