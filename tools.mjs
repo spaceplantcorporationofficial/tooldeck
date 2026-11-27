@@ -724,5 +724,44 @@ Invalid: someone@ and @nowhere</textarea>
       ['Does it mean anything?', 'Not really. The words are fragments of Latin with letters added and removed, so it reads like natural text but has no coherent meaning.'],
       ['Can I use it commercially?', 'Yes. Lorem ipsum is in the public domain.']
     ]
+  },
+  {
+    slug: 'loan-calculator',
+    emoji: '💳',
+    category: 'Finance',
+    name: 'Loan Calculator',
+    title: 'Loan Calculator – Monthly Payment, EMI & Extra Payments',
+    description: 'Calculate the monthly payment (EMI) for a car, personal or student loan. See total interest, a month-by-month schedule and how extra payments cut interest and time.',
+    h1: 'Loan & EMI Calculator',
+    lead: 'Find your monthly payment for any fixed-rate loan, then see how much an extra payment each month would save.',
+    appCategory: 'FinanceApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="lamt">Loan amount ($)</label><input id="lamt" type="number" min="0" value="25000"></div>
+    <div><label for="lrate">Annual interest rate (%)</label><input id="lrate" type="number" min="0" step="0.05" value="7.5"></div>
+    <div><label for="lyears">Term (years)</label><input id="lyears" type="number" min="0" step="0.5" value="5"></div>
+    <div><label for="lextra">Extra payment per month ($)</label><input id="lextra" type="number" min="0" value="100"></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="lpay">–</b><span>Monthly payment</span></div>
+    <div class="stat"><b id="lint">–</b><span>Total interest</span></div>
+    <div class="stat"><b id="ltotal">–</b><span>Total paid</span></div>
+    <div class="stat"><b id="lsave" class="good">–</b><span>Interest saved with extra</span></div>
+    <div class="stat"><b id="lsooner" class="good">–</b><span>Paid off sooner</span></div>
+  </div>
+  <div style="overflow-x:auto;max-height:420px"><table><thead><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody id="lsched"></tbody></table></div>
+</div>`,
+    howto: [
+      'Enter the loan amount, annual interest rate and term.',
+      'Optionally add an extra amount you could pay each month.',
+      'Compare the regular schedule with the faster payoff and the interest you would save.'
+    ],
+    faq: [
+      ['What is EMI?', 'EMI (equated monthly installment) is the fixed monthly payment that pays off a loan, interest included, by the end of its term. It is calculated as P·r·(1+r)^n / ((1+r)^n − 1), where r is the monthly rate and n the number of months.'],
+      ['How do extra payments save money?', 'Any extra amount goes straight to principal, so less interest builds up every month after. Even small extra payments can cut months or years off a loan.'],
+      ['Does this work for car, personal and student loans?', 'Yes, for any fixed-rate loan with equal monthly payments. Variable-rate loans and loans with fees work differently.'],
+      ['Should I check for prepayment penalties?', 'Yes. Some lenders charge a fee for paying early. Check your loan agreement before making extra payments.']
+    ]
   }
 ];
