@@ -615,5 +615,39 @@ York",88</textarea>
       ['How does rounding work?', 'With rounding on, each share is rounded up to the next whole dollar. The extra goes to the tip, and the real tip percentage is shown.'],
       ['Is this saved anywhere?', 'No. Everything is calculated on your device.']
     ]
+  },
+  {
+    slug: 'time-zone-converter',
+    emoji: '🌍',
+    category: 'Everyday',
+    name: 'Time Zone Converter',
+    title: 'Time Zone Converter – Compare Times Around the World',
+    description: 'Convert a date and time between time zones with automatic daylight saving time. Compare New York, London, Tokyo and any IANA zone side by side to schedule meetings.',
+    h1: 'Time Zone Converter',
+    lead: 'Pick a time in one city and instantly see it everywhere else, with daylight saving handled automatically.',
+    appCategory: 'UtilitiesApplication',
+    body: `
+<div class="card">
+  <div class="row">
+    <div><label for="tzdt">Date &amp; time</label><input id="tzdt" type="datetime-local"></div>
+    <div><label for="tzfrom">In time zone</label><select id="tzfrom"></select></div>
+  </div>
+  <div class="row">
+    <div><label for="tzadd">Add a time zone</label><select id="tzadd"></select></div>
+    <div><div class="btns" style="margin-top:28px"><button id="tzaddbtn" class="secondary">+ Add</button><button id="tznow" class="secondary">Now</button></div></div>
+  </div>
+  <div style="overflow-x:auto"><table><thead><tr><th>Time zone</th><th>Local time</th><th>UTC offset</th><th></th></tr></thead><tbody id="tztbl"></tbody></table></div>
+</div>`,
+    howto: [
+      'Pick the date and time, and the time zone it is in.',
+      'Add the cities or time zones you want to compare.',
+      'Read the matching local time and UTC offset for each zone. Share the URL to send the same comparison to others.'
+    ],
+    faq: [
+      ['Does it handle daylight saving time?', 'Yes. It uses your browser\'s built-in IANA time zone database, so DST changes for each zone are applied for the exact date you choose.'],
+      ['What is UTC?', 'Coordinated Universal Time is the global reference time. Time zones are written as offsets from it, for example UTC−5 for New York in winter and UTC−4 in summer.'],
+      ['Why does a converted time show a different date?', 'When a time crosses midnight in another zone, the date changes too. For example, 9 PM in Los Angeles is already the next morning in Tokyo.'],
+      ['Which time zones are supported?', 'Every zone your browser knows, which is typically more than 400 IANA zones such as America/New_York, Europe/London and Asia/Kolkata.']
+    ]
   }
 ];
