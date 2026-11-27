@@ -169,5 +169,6 @@ ${urls.map((u) => `  <url><loc>${u}</loc><lastmod>${today}</lastmod></url>`).joi
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 write('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="#0b1020"/><path d="M36 6 14 36h14l-4 22 22-30H32z" fill="url(#g)"/></svg>`);
 write('.nojekyll', '');
+if (cfg.indexNowKey) write(`${cfg.indexNowKey}.txt`, cfg.indexNowKey);
 
 console.log(`Built ${tools.length} tools, ${urls.length} URLs → ${OUT}/ (site: ${SITE}, stripe: ${SUPPORT ? 'linked' : 'NOT linked'})`);

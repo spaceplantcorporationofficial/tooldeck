@@ -10,3 +10,7 @@ git add -A && git -c user.name=tooldeck-bot -c user.email=bot@tooldeck.local com
 git push -qf "$REMOTE" gh-pages
 rm -rf .git
 echo "Deployed."
+# Give Pages ~60s to publish, then notify search engines.
+cd "$(dirname "$0")"
+sleep 60
+node indexnow.mjs || true
